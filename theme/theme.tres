@@ -1,0 +1,23 @@
+[gd_resource type="Theme" format=3 uid="uid://1wknjly3xpll"]
+
+[ext_resource type="FontFile" uid="uid://bbb63x15mijjq" path="res://theme/PressStart2P-Regular.ttf" id="1_8ab6e"]
+
+[resource]
+default_font = ExtResource("1_8ab6e")
+default_font_size = 10
+Button/colors/font_color = Color(0.92156863, 0.85490197, 0.6392157, 1)
+Button/colors/font_disabled_color = Color(0.92156863, 0.85490197, 0.6392157, 0.5019608)
+Button/colors/font_focus_color = Color(0.81960785, 0.7019608, 0.4862745, 1)
+Button/colors/font_hover_color = Color(0.81960785, 0.7019608, 0.4862745, 1)
+Button/colors/font_hover_pressed_color = Color(0.7254902, 0.6, 0.35686275, 1)
+Button/colors/font_outline_color = Color(0.14117648, 0.18039216, 0.21960784, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Label/colors/font_color = Color(0.92156863, 0.85490197, 0.6392157, 1)
+Label/colors/font_outline_color = Color(0.14117648, 0.18039216, 0.21960784, 1)
+LineEdit/colors/caret_color = Color(0.92156863, 0.85490197, 0.6392157, 1)
+LineEdit/colors/font_color = Color(0.92156863, 0.85490197, 0.6392157, 1)
+LineEdit/colors/font_outline_color = Color(0.14117648, 0.18039216, 0.21960784, 1)
+LineEdit/colors/font_placeholder_color = Color(0.92156863, 0.85490197, 0.6392157, 0.5019608)
+LineEdit/colors/font_selected_color = Color(0.92156863, 0.85490197, 0.6392157, 1)
+LineEdit/colors/font_uneditable_color = Color(0.92156863, 0.85490197, 0.6392157, 0.5019608)
+LineEdit/colors/selection_color = Color(0.81960785, 0.7019608, 0.4862745, 1)

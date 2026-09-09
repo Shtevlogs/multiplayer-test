@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://gw67jblryw4y"]
+
+[ext_resource type="Script" uid="uid://bk7rgub20lvox" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Theme" uid="uid://1wknjly3xpll" path="res://theme/theme.tres" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=1763360357]
+script = ExtResource("1_ig7tw")
+
+[node name="SceneRoot" type="Node2D" parent="." unique_id=1104910095]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=191415982]
+
+[node name="Networking" type="VBoxContainer" parent="CanvasLayer" unique_id=109214660]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -33.0
+offset_right = 84.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_0xm2m")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer/Networking" unique_id=607194634]
+layout_mode = 2
+text = "127.0.0.1:60000"
+placeholder_text = "ip:port"
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Networking" unique_id=1921395981]
+layout_mode = 2
+
+[node name="ConnectButton" type="Button" parent="CanvasLayer/Networking" unique_id=1109696608]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Connect"
+
+[node name="HostButton" type="Button" parent="CanvasLayer/Networking" unique_id=2041063711]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+text = "Host"
+
+[node name="Managers" type="Node" parent="." unique_id=1790553694]
