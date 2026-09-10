@@ -7,6 +7,7 @@ func _ready() -> void:
     
 @onready var scene_spawner: MultiplayerSpawner = $"../../SceneSpawner"
 @onready var player_spawner: MultiplayerSpawner = $"../../PlayerSpawner"
+@onready var networking: Networking = $"../../CanvasLayer/Networking"
 
 var peer: ENetMultiplayerPeer
 var pid: int
@@ -22,10 +23,11 @@ func host(port: int) -> void:
     
     multiplayer.peer_connected.connect(_on_peer_connected)
     
-    Main.I.start()
-    await get_tree().process_frame
+    # THESE NEED TO BE IN ORDER
+    SceneManager.I.change_scene(SceneManager.WORLD)
     player_spawner.spawn(1)
-
+    networking.visible = false
+    
 func join(ip: String, port: int) -> void:
     peer = ENetMultiplayerPeer.new()
     peer.create_client(ip, port)
@@ -35,13 +37,12 @@ func join(ip: String, port: int) -> void:
     
     do_print('joining %s:%s' % [ip, port])
     
-    Main.I.start()
+    networking.visible = false
 
 func _on_peer_connected(id: int) -> void:
     if !multiplayer.is_server(): return
     # spawn a new player
     player_spawner.spawn(id)
-    
 
 func do_print(text: String) -> void:
     print("[%s]: %s" % [pid,text])
