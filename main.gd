@@ -1,7 +1,10 @@
 class_name Main
 extends Node2D
 
+const SCENE : PackedScene = preload("uid://xgbtjip1bena")
+
 @onready var scene_root: Node2D = $SceneRoot
+@onready var networking: Networking = $CanvasLayer/Networking
 
 static var I : Main
 func _ready() -> void:
@@ -17,3 +20,10 @@ func _input(event:InputEvent) -> void:
         return
     if key_pressed.keycode == KEY_ESCAPE:
         get_tree().quit()
+
+func start() -> void:
+    NetworkManager.I.do_print("main start %s" % NetworkManager.I.pid)
+    networking.visible = false
+    if multiplayer.is_server():
+        NetworkManager.I.scene_spawner.spawn(null)
+    
