@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dohad5tu8elid" path="res://scripts/scaffolding/character_body_entity.gd" id="1_merdl"]
 [ext_resource type="Script" uid="uid://cu4wnwfoelk1h" path="res://scripts/components/body_mover_component.gd" id="2_b0kkn"]
 [ext_resource type="Script" uid="uid://blabyutglstx4" path="res://scripts/components/random_position_component.gd" id="3_e4p34"]
+[ext_resource type="Script" uid="uid://ckxhw0nneexvw" path="res://scripts/components/input_component.gd" id="4_rfe5m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulcgi"]
 
@@ -22,3 +23,6 @@ script = ExtResource("2_b0kkn")
 
 [node name="RandomPositionComponent" type="Node" parent="." unique_id=247205993]
 script = ExtResource("3_e4p34")
+
+[node name="InputComponent" type="Node" parent="." unique_id=1548471192]
+script = ExtResource("4_rfe5m")
