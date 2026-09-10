@@ -10,7 +10,7 @@ const SCENES : Array[PackedScene] = [
 static var I : SceneManager
 
 @onready var scene_root: Node2D = $"../../SceneRoot"
-@onready var scene_spawner: SceneSpawner = $"../../SceneSpawner"
+@onready var scene_spawner: SceneSpawner = $"../SceneSpawner"
 
 func _ready() -> void:
     I = self

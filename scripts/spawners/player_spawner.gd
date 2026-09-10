@@ -5,6 +5,11 @@ const PLAYER : PackedScene = preload("uid://co0dy4rvhwv5g")
 
 func _ready() -> void:
     spawn_function = _spawn_player
+    multiplayer.peer_connected.connect(_on_peer_connected)
+
+func _on_peer_connected(id: int) -> void:
+    if !multiplayer.is_server(): return
+    spawn(id)
 
 func _spawn_player(id: int) -> Node:
     NetworkManager.I.do_print("Spawning Player ... %s" %id)

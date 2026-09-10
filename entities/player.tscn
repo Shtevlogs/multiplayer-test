@@ -1,14 +1,10 @@
 [gd_scene format=3 uid="uid://co0dy4rvhwv5g"]
 
-[ext_resource type="Script" uid="uid://rbrsmy10r1xt" path="res://scripts/entities/entity.gd" id="1_merdl"]
-[ext_resource type="Script" uid="uid://uxnw21or726b" path="res://entities/player_multiplayer_synchronizer.gd" id="2_b0kkn"]
+[ext_resource type="Script" uid="uid://dohad5tu8elid" path="res://scripts/scaffolding/character_body_entity.gd" id="1_merdl"]
+[ext_resource type="Script" uid="uid://cu4wnwfoelk1h" path="res://scripts/components/body_mover_component.gd" id="2_b0kkn"]
+[ext_resource type="Script" uid="uid://blabyutglstx4" path="res://scripts/components/random_position_component.gd" id="3_e4p34"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulcgi"]
-
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_u3f3p"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D" unique_id=2046683467]
 script = ExtResource("1_merdl")
@@ -21,6 +17,8 @@ polygon = PackedVector2Array(4, -20, -5, 3, -21, -11, -8, -28)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1521568963]
 shape = SubResource("CircleShape2D_ulcgi")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1594302726]
-replication_config = SubResource("SceneReplicationConfig_u3f3p")
+[node name="BodyMoverComponent" type="Node" parent="." unique_id=1114166462]
 script = ExtResource("2_b0kkn")
+
+[node name="RandomPositionComponent" type="Node" parent="." unique_id=247205993]
+script = ExtResource("3_e4p34")

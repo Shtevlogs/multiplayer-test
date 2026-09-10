@@ -4,14 +4,36 @@
 [ext_resource type="Theme" uid="uid://1wknjly3xpll" path="res://theme/theme.tres" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://b2axfe7tqryp6" path="res://scripts/ui/networking.gd" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://c8o5cwauw340k" path="res://scripts/managers/network_manager.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://bpkatobgaiebs" path="res://scene_spawner.gd" id="5_7mycd"]
+[ext_resource type="Script" uid="uid://0m2xghy43bbn" path="res://scripts/managers/player_manager.gd" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://bpkatobgaiebs" path="res://scripts/spawners/scene_spawner.gd" id="5_7mycd"]
 [ext_resource type="Script" uid="uid://cqw7hipxfmpwh" path="res://scripts/managers/scene_manager.gd" id="5_272bh"]
-[ext_resource type="Script" uid="uid://w8u6kim4nxkj" path="res://player_spawner.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://w8u6kim4nxkj" path="res://scripts/spawners/player_spawner.gd" id="5_lquwl"]
 
 [node name="Main" type="Node2D" unique_id=1763360357]
 script = ExtResource("1_ig7tw")
 
 [node name="SceneRoot" type="Node2D" parent="." unique_id=1104910095]
+
+[node name="Managers" type="Node" parent="." unique_id=1790553694]
+
+[node name="NetworkManager" type="Node" parent="Managers" unique_id=281943562]
+script = ExtResource("3_h2yge")
+
+[node name="SceneManager" type="Node" parent="Managers" unique_id=2037637933]
+script = ExtResource("5_272bh")
+
+[node name="PlayerManager" type="Node" parent="Managers" unique_id=1967445137]
+script = ExtResource("4_5vw27")
+
+[node name="SceneSpawner" type="MultiplayerSpawner" parent="Managers" unique_id=1089610831]
+_spawnable_scenes = PackedStringArray("uid://xgbtjip1bena")
+spawn_path = NodePath("../../SceneRoot")
+script = ExtResource("5_7mycd")
+
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Managers" unique_id=838191478]
+_spawnable_scenes = PackedStringArray("uid://co0dy4rvhwv5g")
+spawn_path = NodePath("../../SceneRoot")
+script = ExtResource("5_lquwl")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=191415982]
 
@@ -47,21 +69,3 @@ text = "Connect"
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Host"
-
-[node name="Managers" type="Node" parent="." unique_id=1790553694]
-
-[node name="NetworkManager" type="Node" parent="Managers" unique_id=281943562]
-script = ExtResource("3_h2yge")
-
-[node name="SceneManager" type="Node" parent="Managers" unique_id=2037637933]
-script = ExtResource("5_272bh")
-
-[node name="SceneSpawner" type="MultiplayerSpawner" parent="." unique_id=1089610831]
-_spawnable_scenes = PackedStringArray("uid://xgbtjip1bena")
-spawn_path = NodePath("../SceneRoot")
-script = ExtResource("5_7mycd")
-
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=838191478]
-_spawnable_scenes = PackedStringArray("uid://co0dy4rvhwv5g")
-spawn_path = NodePath("../SceneRoot")
-script = ExtResource("5_lquwl")
