@@ -19,6 +19,6 @@ func _on_body_entered(node: Node2D) -> void:
         entity.cleanup.rpc()
         
         # had to do this because of circ reference?
-        # TODO: make it so that doesn't happen ...ffs
+        #TODO: make it so that doesn't happen? ...ffs
         $/root/PlayerManager.call_deferred(&'spawn_peer', peer_id, phase)
         $/root/PhaseManager.update_view_remote.rpc_id(peer_id, phase)
