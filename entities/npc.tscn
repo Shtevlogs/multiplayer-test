@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://qbox8ja0a28g"]
 
+[ext_resource type="Script" uid="uid://dohad5tu8elid" path="res://scripts/scaffolding/character_body_entity.gd" id="1_0u2uj"]
 [ext_resource type="Script" uid="uid://cu4wnwfoelk1h" path="res://scripts/components/body_mover_component.gd" id="1_kdwfn"]
 [ext_resource type="Script" uid="uid://7hrjqk522b1s" path="res://scripts/components/2d/path_walker_component.gd" id="2_34xg4"]
 
@@ -7,11 +8,13 @@
 
 [sub_resource type="Curve2D" id="Curve2D_kdwfn"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, 25, 0, 0, 0, 0, 8, 84, 0, 0, 0, 0, 56, 87, 8.426599, 41.606327, -8.426599, -41.606327, 82, 24, 0, 0, 0, 0, 43, -21)
+"points": PackedVector2Array(0, 0, 0, 0, -53, -23, 0, 0, 0, 0, -26, 35, 0, 0, 0, 0, 15, -5, -13.202378, 93.34623, 13.202378, -93.34623, 82, 24, 0, 0, 0, 0, 18, -67)
 }
 point_count = 5
 
 [node name="NPC" type="CharacterBody2D" unique_id=50114366]
+motion_mode = 1
+script = ExtResource("1_0u2uj")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=415740118]
 position = Vector2(0, 1)
@@ -24,6 +27,7 @@ shape = SubResource("CircleShape2D_34xg4")
 
 [node name="BodyMoverComponent" type="Node" parent="." unique_id=1578135155]
 script = ExtResource("1_kdwfn")
+speed = 3000.0
 
 [node name="PathWalkerComponent" type="Node2D" parent="." unique_id=1203063366]
 script = ExtResource("2_34xg4")

@@ -2,40 +2,90 @@
 
 [ext_resource type="Script" uid="uid://bk7rgub20lvox" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Theme" uid="uid://1wknjly3xpll" path="res://theme/theme.tres" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://s5fu1gkeonjv" path="res://phase.tscn" id="2_dg77c"]
 [ext_resource type="Script" uid="uid://b2axfe7tqryp6" path="res://scripts/ui/networking.gd" id="3_1bvp3"]
-[ext_resource type="Script" uid="uid://c8o5cwauw340k" path="res://scripts/managers/network_manager.gd" id="3_h2yge"]
-[ext_resource type="Script" uid="uid://0m2xghy43bbn" path="res://scripts/managers/player_manager.gd" id="4_5vw27"]
-[ext_resource type="Script" uid="uid://bpkatobgaiebs" path="res://scripts/spawners/scene_spawner.gd" id="5_7mycd"]
-[ext_resource type="Script" uid="uid://cqw7hipxfmpwh" path="res://scripts/managers/scene_manager.gd" id="5_272bh"]
-[ext_resource type="Script" uid="uid://w8u6kim4nxkj" path="res://scripts/spawners/player_spawner.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://cs48u5yfx6jrb" path="res://scripts/spawners/phase_spawner.gd" id="9_efxa6"]
 
 [node name="Main" type="Node2D" unique_id=1763360357]
 script = ExtResource("1_ig7tw")
 
 [node name="SceneRoot" type="Node2D" parent="." unique_id=1104910095]
 
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SceneRoot" unique_id=363195931]
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="Phase0" parent="SceneRoot/SubViewportContainer" unique_id=1388063413 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase1" parent="SceneRoot/SubViewportContainer" unique_id=1666269835 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase2" parent="SceneRoot/SubViewportContainer" unique_id=304998977 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase3" parent="SceneRoot/SubViewportContainer" unique_id=1365362477 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase4" parent="SceneRoot/SubViewportContainer" unique_id=718312243 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase5" parent="SceneRoot/SubViewportContainer" unique_id=1879465700 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase6" parent="SceneRoot/SubViewportContainer" unique_id=1102413985 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase7" parent="SceneRoot/SubViewportContainer" unique_id=345341240 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase8" parent="SceneRoot/SubViewportContainer" unique_id=1483797245 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
+[node name="Phase9" parent="SceneRoot/SubViewportContainer" unique_id=1923505853 instance=ExtResource("2_dg77c")]
+handle_input_locally = false
+size = Vector2i(500, 500)
+render_target_update_mode = 4
+
 [node name="Managers" type="Node" parent="." unique_id=1790553694]
 
-[node name="NetworkManager" type="Node" parent="Managers" unique_id=281943562]
-script = ExtResource("3_h2yge")
-
-[node name="SceneManager" type="Node" parent="Managers" unique_id=2037637933]
-script = ExtResource("5_272bh")
-
-[node name="PlayerManager" type="Node" parent="Managers" unique_id=1967445137]
-script = ExtResource("4_5vw27")
-
-[node name="SceneSpawner" type="MultiplayerSpawner" parent="Managers" unique_id=1089610831]
-_spawnable_scenes = PackedStringArray("uid://xgbtjip1bena")
-spawn_path = NodePath("../../SceneRoot")
-script = ExtResource("5_7mycd")
-
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="Managers" unique_id=838191478]
-_spawnable_scenes = PackedStringArray("uid://co0dy4rvhwv5g")
-spawn_path = NodePath("../../SceneRoot")
-script = ExtResource("5_lquwl")
+[node name="PhaseSpawner" type="MultiplayerSpawner" parent="Managers" unique_id=239839341]
+_spawnable_scenes = PackedStringArray("uid://s5fu1gkeonjv")
+spawn_path = NodePath("../../SceneRoot/SubViewportContainer")
+script = ExtResource("9_efxa6")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=191415982]
+
+[node name="PhaseView" type="TextureRect" parent="CanvasLayer" unique_id=1696985829]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
 
 [node name="Networking" type="VBoxContainer" parent="CanvasLayer" unique_id=109214660]
 anchors_preset = 8

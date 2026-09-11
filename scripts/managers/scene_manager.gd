@@ -1,23 +1,30 @@
-class_name SceneManager
 extends Node
 
 const WORLD := 0
+const WORLD_2 := 1
 
 const SCENES : Array[PackedScene] = [
-    preload("uid://xgbtjip1bena") # World
+    preload("uid://xgbtjip1bena"), # World
+    preload("uid://8mpmo88pirew") # World 2
 ]
 
-static var I : SceneManager
+func request_scene(scene_no: int) -> int:
+    var phase := PhaseManager.get_scene_phase(scene_no)
+    if phase >= 0:
+        return phase
+    else:
+        phase = PhaseManager.reserve_unused_phase(scene_no)
+    spawn_scene(scene_no, phase)
+    return phase
 
-@onready var scene_root: Node2D = $"../../SceneRoot"
-@onready var scene_spawner: SceneSpawner = $"../SceneSpawner"
-
-func _ready() -> void:
-    I = self
-
-func change_scene(scene_no: int) -> void:
+func spawn_scene(scene_no: int, phase: int) -> void:
     if !multiplayer.is_server(): return
-    for node : Node in scene_root.get_children():
-        node.queue_free()
     
+    if !PhaseManager.is_phase_open(phase, scene_no):
+        push_error("couldn't spawn scene %s, phase %s already in use!" % [scene_no, phase])
+        return
+    
+    var scene_spawner := PhaseManager.get_scene_spawner(phase)
+    await get_tree().process_frame
     scene_spawner.spawn(scene_no)
+    

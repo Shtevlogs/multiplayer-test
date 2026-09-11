@@ -11,12 +11,12 @@ func _ready() -> void:
     
 func _on_connect() -> void:
     var ip_and_port := _ip_and_port(line_edit.text)
-    NetworkManager.I.join(ip_and_port[0],int(ip_and_port[1]))
+    NetworkManager.join(ip_and_port[0],int(ip_and_port[1]))
     visible = false
     
 func _on_host() -> void:
     var ip_and_port := _ip_and_port(line_edit.text)
-    NetworkManager.I.host(int(ip_and_port[1]))
+    NetworkManager.host(int(ip_and_port[1]))
     visible = false
     
 

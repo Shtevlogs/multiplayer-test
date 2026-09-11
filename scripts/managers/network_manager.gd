@@ -1,12 +1,4 @@
-class_name NetworkManager
 extends Node
-
-static var I : NetworkManager
-func _ready() -> void:
-    I = self
-    
-@onready var scene_manager: SceneManager = $"../SceneManager"
-@onready var player_manager: PlayerManager = $"../PlayerManager"
 
 var peer: ENetMultiplayerPeer
 var pid: int
@@ -19,9 +11,11 @@ func host(port: int) -> void:
     
     do_print('hosting %s' % [port])
     
-    # THESE NEED TO BE IN ORDER
-    scene_manager.change_scene(SceneManager.WORLD)
-    player_manager.spawn_self()
+    # THESE 2 NEED TO BE IN ORDER
+    SceneManager.request_scene(SceneManager.WORLD)
+    PlayerManager.spawn_self()
+    
+    #scene_manager.spawn_scene(SceneManager.WORLD_2, 1)
     
 func join(ip: String, port: int) -> void:
     peer = ENetMultiplayerPeer.new()

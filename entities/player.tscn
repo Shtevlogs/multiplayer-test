@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://co0dy4rvhwv5g"]
 
 [ext_resource type="Script" uid="uid://dohad5tu8elid" path="res://scripts/scaffolding/character_body_entity.gd" id="1_merdl"]
-[ext_resource type="Script" uid="uid://cu4wnwfoelk1h" path="res://scripts/components/body_mover_component.gd" id="2_b0kkn"]
-[ext_resource type="Script" uid="uid://blabyutglstx4" path="res://scripts/components/random_position_component.gd" id="3_e4p34"]
+[ext_resource type="Script" uid="uid://cu4wnwfoelk1h" path="res://scripts/components/body_mover_component.gd" id="2_rfe5m"]
 [ext_resource type="Script" uid="uid://ckxhw0nneexvw" path="res://scripts/components/input_component.gd" id="4_rfe5m"]
+[ext_resource type="Script" uid="uid://kvfgmu235b2n" path="res://scripts/components/pid_position_component.gd" id="5_qly61"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ulcgi"]
 
 [node name="Player" type="CharacterBody2D" unique_id=2046683467]
+motion_mode = 1
 script = ExtResource("1_merdl")
 
 [node name="Polygon2D" type="Polygon2D" parent="." unique_id=299504353]
@@ -19,10 +20,11 @@ polygon = PackedVector2Array(4, -20, -5, 3, -21, -11, -8, -28)
 shape = SubResource("CircleShape2D_ulcgi")
 
 [node name="BodyMoverComponent" type="Node" parent="." unique_id=1114166462]
-script = ExtResource("2_b0kkn")
-
-[node name="RandomPositionComponent" type="Node" parent="." unique_id=247205993]
-script = ExtResource("3_e4p34")
+script = ExtResource("2_rfe5m")
 
 [node name="InputComponent" type="Node" parent="." unique_id=1548471192]
 script = ExtResource("4_rfe5m")
+
+[node name="PIDPositionComponent" type="Node" parent="." unique_id=1272881470]
+script = ExtResource("5_qly61")
+metadata/_custom_type_script = "uid://kvfgmu235b2n"

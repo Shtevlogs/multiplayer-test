@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://b7wfw5yketncw"]
+
+[ext_resource type="Script" uid="uid://cyee0polgqhhu" path="res://scripts/scaffolding/area_2d_entity.gd" id="1_04sti"]
+[ext_resource type="Script" uid="uid://cv80yhswgrnfe" path="res://scripts/components/portal_component.gd" id="2_12btf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fj7yv"]
+radius = 16.0
+
+[node name="Portal" type="Area2D" unique_id=710837289]
+script = ExtResource("1_04sti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1926001675]
+position = Vector2(-2, -5)
+shape = SubResource("CircleShape2D_fj7yv")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=918078626]
+scale = Vector2(2.2010455, 2.4855692)
+color = Color(0.18039216, 0.05882353, 0.078431375, 1)
+polygon = PackedVector2Array(0, -12, -10, -6, -9, 4, -1, 9, 4, 8, 7, 2, 9, -5, 9, -10)
+
+[node name="PortalComponent" type="Node" parent="." unique_id=889793549]
+script = ExtResource("2_12btf")
+metadata/_custom_type_script = "uid://cv80yhswgrnfe"
