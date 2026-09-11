@@ -7,7 +7,6 @@ var pid : int
 var components : Array[Component] = []
 
 func _init() -> void:
-    super._init()
     var entity_sync := MultiplayerSynchronizer.new()
     entity_sync.replication_config = get_rep_config()
     entity_sync.set_script(EntitySyncComponent)
@@ -22,7 +21,7 @@ func assign_sync_properties(rep_config: SceneReplicationConfig) -> void:
     rep_config.add_property(^".:scale")
 
 func _enter_tree() -> void:
-    if pid && phase >= 0:
+    if pid:
         set_multiplayer_authority(pid)
 
 func _ready() -> void:

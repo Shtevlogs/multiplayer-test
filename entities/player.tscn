@@ -21,6 +21,7 @@ shape = SubResource("CircleShape2D_ulcgi")
 
 [node name="BodyMoverComponent" type="Node" parent="." unique_id=1114166462]
 script = ExtResource("2_rfe5m")
+speed = 10000.0
 
 [node name="InputComponent" type="Node" parent="." unique_id=1548471192]
 script = ExtResource("4_rfe5m")

@@ -12,10 +12,8 @@ func host(port: int) -> void:
     do_print('hosting %s' % [port])
     
     # THESE 2 NEED TO BE IN ORDER
-    SceneManager.request_scene(SceneManager.WORLD)
-    PlayerManager.spawn_self()
-    
-    #scene_manager.spawn_scene(SceneManager.WORLD_2, 1)
+    await SceneManager.request_scene(SceneManager.WORLD)
+    PlayerManager.spawn_peer(0, 0)
     
 func join(ip: String, port: int) -> void:
     peer = ENetMultiplayerPeer.new()

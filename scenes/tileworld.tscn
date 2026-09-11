@@ -1,0 +1,23 @@
+[gd_scene format=4 uid="uid://b52odx0msno33"]
+
+[ext_resource type="Script" uid="uid://cakcy1iateqcv" path="res://scripts/scaffolding/phaseable.gd" id="1_fl2xv"]
+[ext_resource type="TileSet" uid="uid://l75sqltn1thq" path="res://tileset.tres" id="1_xs67p"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="2_7ui0j"]
+
+[node name="Tileworld" type="Node2D" unique_id=1272379804]
+script = ExtResource("1_fl2xv")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1254223685]
+tile_map_data = PackedByteArray("AAD8////AQAAAAAAAAD8/wAAAQAAAAAAAAD9////AQAAAAAAAAD9/wAAAQAAAAAAAAD+////AQAAAAAAAAD+/wAAAQAAAAAAAAD/////AQAAAAAAAAD//wAAAQAAAAAAAAAAAP//AQAAAAAAAAAAAAAAAQAAAAAAAAABAP//AQAAAAAAAAABAAAAAQAAAAAAAAACAP//AQAAAAAAAAACAAAAAQAAAAAAAAADAP//AQAAAAAAAAADAAAAAQAAAAAAAAABAPv/AQAAAAAAAAABAPz/AQAAAAAAAAABAP3/AQAAAAAAAAABAP7/AQAAAAAAAAACAPv/AQAAAAAAAAACAPz/AQAAAAAAAAACAP3/AQAAAAAAAAACAP7/AQAAAAAAAAADAPv/AQAAAAAAAAADAPz/AQAAAAAAAAADAP3/AQAAAAAAAAADAP7/AQAAAAAAAAD8//r/AQAAAAAAAAD8//v/AQAAAAAAAAD9//r/AQAAAAAAAAD9//v/AQAAAAAAAAD+//r/AQAAAAAAAAD+//v/AQAAAAAAAAD///r/AQAAAAAAAAD///v/AQAAAAAAAAAAAPr/AQAAAAAAAAAAAPv/AQAAAAAAAAABAPr/AQAAAAAAAAACAPr/AQAAAAAAAAADAPr/AQAAAAAAAAA=")
+tile_set = ExtResource("1_xs67p")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1970875744]
+
+[node name="Portal" parent="." unique_id=710837289 instance=ExtResource("2_7ui0j")]
+position = Vector2(-18, -75)
+phase = null
+
+[node name="PortalComponent" parent="Portal" index="2" unique_id=889793549]
+target_scene = 0
+
+[editable path="Portal"]

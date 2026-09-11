@@ -2,10 +2,12 @@ extends Node
 
 const WORLD := 0
 const WORLD_2 := 1
+const TILE_WORLD := 2
 
 const SCENES : Array[PackedScene] = [
     preload("uid://xgbtjip1bena"), # World
-    preload("uid://8mpmo88pirew") # World 2
+    preload("uid://8mpmo88pirew"), # World 2
+    preload("uid://b52odx0msno33") # Tileworld
 ]
 
 func request_scene(scene_no: int) -> int:
@@ -13,7 +15,7 @@ func request_scene(scene_no: int) -> int:
     if phase >= 0:
         return phase
     else:
-        phase = PhaseManager.reserve_unused_phase(scene_no)
+        phase = await PhaseManager.reserve_unused_phase(scene_no)
     spawn_scene(scene_no, phase)
     return phase
 

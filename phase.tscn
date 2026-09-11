@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://s5fu1gkeonjv"]
 
+[ext_resource type="Script" uid="uid://dgal3sic7h4gm" path="res://scripts/scaffolding/phase.gd" id="1_e83ql"]
 [ext_resource type="Script" uid="uid://w8u6kim4nxkj" path="res://scripts/spawners/player_spawner.gd" id="1_q64fp"]
 [ext_resource type="Script" uid="uid://bpkatobgaiebs" path="res://scripts/spawners/scene_spawner.gd" id="2_e83ql"]
 
 [node name="Phase" type="SubViewport" unique_id=1388063413]
 canvas_item_default_texture_filter = 0
+script = ExtResource("1_e83ql")
 
 [node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=526968408]
 _spawnable_scenes = PackedStringArray("uid://co0dy4rvhwv5g")
@@ -13,7 +15,7 @@ script = ExtResource("1_q64fp")
 metadata/_custom_type_script = "uid://w8u6kim4nxkj"
 
 [node name="SceneSpawner" type="MultiplayerSpawner" parent="." unique_id=1849455363]
-_spawnable_scenes = PackedStringArray("res://world.tscn", "uid://8mpmo88pirew")
+_spawnable_scenes = PackedStringArray("uid://8mpmo88pirew")
 spawn_path = NodePath("..")
 script = ExtResource("2_e83ql")
 metadata/_custom_type_script = "uid://bpkatobgaiebs"

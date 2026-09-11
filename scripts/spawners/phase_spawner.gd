@@ -12,15 +12,3 @@ func _spawn_phase(phase_no: int) -> Node:
     phase.name = "Phase%s" % phase_no
     phase.world_2d = World2D.new()
     return phase
-
-func get_phase(num: int) -> SubViewport:
-    var container := get_node(spawn_path)
-    return container.get_node("Phase%s" % num)
-
-func create_phase(num: int) -> bool:
-    var container := get_node(spawn_path)
-    if !container.has_node("Phase%s" % num):
-        spawn(num)
-        return true
-    return false
-    
