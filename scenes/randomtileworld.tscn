@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dlmxpem7jrhq1"]
+
+[ext_resource type="Script" uid="uid://cakcy1iateqcv" path="res://scripts/scaffolding/phaseable.gd" id="1_viqax"]
+[ext_resource type="Script" uid="uid://1snei1it3goh" path="res://scripts/scaffolding/tile_map_layer_entity.gd" id="2_668w6"]
+[ext_resource type="TileSet" uid="uid://l75sqltn1thq" path="res://tileset.tres" id="2_lropl"]
+[ext_resource type="Script" uid="uid://car6p4bhi87w5" path="res://scripts/components/tilemap_randomizer_component.gd" id="3_p0w5j"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="5_dby12"]
+
+[node name="Randomtileworld" type="Node2D" unique_id=1013757259]
+script = ExtResource("1_viqax")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2094686257]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1846149106]
+tile_set = ExtResource("2_lropl")
+script = ExtResource("2_668w6")
+
+[node name="TilemapRandomizerComponent" type="Node" parent="TileMapLayer" unique_id=970764245]
+script = ExtResource("3_p0w5j")
+
+[node name="Portal" parent="." unique_id=710837289 instance=ExtResource("5_dby12")]
+position = Vector2(4, -251)
+
+[node name="PortalComponent" parent="Portal" index="2" unique_id=889793549]
+target_scene = 0
+
+[editable path="Portal"]

@@ -22,6 +22,7 @@ PhaseManager="*uid://bjdikal2o47qk"
 PlayerManager="*uid://0m2xghy43bbn"
 PreloadManager="*uid://bm8vmpbhe8bnb"
 SceneManager="*uid://cqw7hipxfmpwh"
+IdentityManager="*uid://c7srsssa1xva6"
 
 [display]
 

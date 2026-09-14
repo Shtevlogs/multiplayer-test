@@ -74,4 +74,4 @@ func _apply_dict(dict: Dictionary) -> void:
         set(p_name, dict[p_name]) #TODO: make a generic type conversion function
 
 func filter_p_name(p_name: String) -> bool:
-    return p_name.begins_with("_") || p_name == "db"
+    return p_name.begins_with("_") || p_name == "db" || p_name == "script"

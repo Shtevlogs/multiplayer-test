@@ -1,5 +1,5 @@
 class_name PathWalkerComponent
-extends Component2D
+extends OwnerComponent
 
 @onready var path_2d: Path2D = $Path2D
 
@@ -12,8 +12,6 @@ func _post_ready() -> void:
     body_mover_component = parent.find_component_of_type(BodyMoverComponent)
     _start = parent.global_position
 
-    if !is_multiplayer_authority(): return
-    
     var starting_point := path_2d.curve.get_point_position(0)
     if starting_point != Vector2.ZERO:
         path_2d.curve.add_point(Vector2.ZERO, Vector2.ZERO, Vector2.ZERO, 0)

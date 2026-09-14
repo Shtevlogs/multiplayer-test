@@ -1,5 +1,5 @@
 class_name InputComponent
-extends Component
+extends OwnerComponent
 
 var _pressed : Array[StringName] = []
 var _just_pressed : Array[StringName] = []

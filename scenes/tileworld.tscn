@@ -15,9 +15,8 @@ tile_set = ExtResource("1_xs67p")
 
 [node name="Portal" parent="." unique_id=710837289 instance=ExtResource("2_7ui0j")]
 position = Vector2(-18, -75)
-phase = null
 
 [node name="PortalComponent" parent="Portal" index="2" unique_id=889793549]
-target_scene = 0
+target_scene = 3
 
 [editable path="Portal"]

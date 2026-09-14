@@ -9,7 +9,7 @@ func _spawn_player(id: int) -> Node:
     var new_player := PreloadManager.PLAYER.instantiate()
     new_player.pid = id
     new_player.phase = phase
-    new_player.name = "Player_%s" % id
+    new_player.name = "Player_%s_1" % id
     return new_player
 
 @rpc('any_peer', 'call_local')

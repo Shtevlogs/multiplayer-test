@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://w8u6kim4nxkj" path="res://scripts/spawners/player_spawner.gd" id="1_q64fp"]
 [ext_resource type="Script" uid="uid://bpkatobgaiebs" path="res://scripts/spawners/scene_spawner.gd" id="2_e83ql"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_e83ql"]
+
 [node name="Phase" type="SubViewport" unique_id=1388063413]
 canvas_item_default_texture_filter = 0
 script = ExtResource("1_e83ql")
@@ -19,3 +21,6 @@ _spawnable_scenes = PackedStringArray("uid://8mpmo88pirew")
 spawn_path = NodePath("..")
 script = ExtResource("2_e83ql")
 metadata/_custom_type_script = "uid://bpkatobgaiebs"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=836253984]
+replication_config = SubResource("SceneReplicationConfig_e83ql")

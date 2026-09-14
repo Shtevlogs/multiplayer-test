@@ -10,6 +10,7 @@ func _init() -> void:
     var entity_sync := MultiplayerSynchronizer.new()
     entity_sync.replication_config = get_rep_config()
     entity_sync.set_script(EntitySyncComponent)
+    entity_sync.name = name + "_sync"
     add_child(entity_sync)
 
 func get_rep_config() -> SceneReplicationConfig:
@@ -23,6 +24,8 @@ func assign_sync_properties(rep_config: SceneReplicationConfig) -> void:
 func _enter_tree() -> void:
     if pid:
         set_multiplayer_authority(pid)
+    else:
+        set_multiplayer_authority(1)
 
 func _ready() -> void:
     #NetworkManager.do_print("entity is spawned %s" % pid)

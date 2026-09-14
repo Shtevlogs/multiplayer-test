@@ -1,11 +1,12 @@
 class_name PortalComponent
-extends Component
+extends ServerComponent
 
 @export var target_scene := 1
 
 func _post_ready() -> void:
-    if !multiplayer.is_server(): return #TODO: we COULD queue free here, but also is there a way to just mark a whole component as 'server only'?
-    (parent as Area2DEntity).area_2d.body_entered.connect(_on_body_entered)
+    var a2d := (parent as Area2DEntity).area_2d
+    if !a2d.body_entered.is_connected(_on_body_entered):
+        a2d.body_entered.connect(_on_body_entered)
     
 func _on_body_entered(node: Node2D) -> void:
     var entity := node as Entity
