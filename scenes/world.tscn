@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cakcy1iateqcv" path="res://scripts/scaffolding/phaseable.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://qbox8ja0a28g" path="res://entities/npc.tscn" id="2_71j4m"]
 [ext_resource type="Theme" uid="uid://1wknjly3xpll" path="res://theme/theme.tres" id="3_qfnet"]
-[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="4_i7141"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://entities/objects/portal.tscn" id="4_i7141"]
 
 [node name="World" type="Node2D" unique_id=469553250]
 script = ExtResource("1_k0juu")

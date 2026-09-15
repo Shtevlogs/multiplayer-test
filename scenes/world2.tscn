@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8mpmo88pirew"]
 
 [ext_resource type="Script" uid="uid://cakcy1iateqcv" path="res://scripts/scaffolding/phaseable.gd" id="1_c8irk"]
-[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="2_kbowq"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://entities/objects/portal.tscn" id="2_kbowq"]
 
 [node name="World2" type="Node2D" unique_id=1468472780]
 script = ExtResource("1_c8irk")

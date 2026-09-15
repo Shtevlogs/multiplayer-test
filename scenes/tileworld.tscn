@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cakcy1iateqcv" path="res://scripts/scaffolding/phaseable.gd" id="1_fl2xv"]
 [ext_resource type="TileSet" uid="uid://l75sqltn1thq" path="res://tileset.tres" id="1_xs67p"]
-[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="2_7ui0j"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://entities/objects/portal.tscn" id="2_7ui0j"]
 
 [node name="Tileworld" type="Node2D" unique_id=1272379804]
 script = ExtResource("1_fl2xv")

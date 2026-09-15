@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://1wknjly3xpll" path="res://theme/theme.tres" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://s5fu1gkeonjv" path="res://phase.tscn" id="2_dg77c"]
 [ext_resource type="Script" uid="uid://b2axfe7tqryp6" path="res://scripts/ui/networking.gd" id="3_1bvp3"]
-[ext_resource type="Script" uid="uid://cs48u5yfx6jrb" path="res://scripts/spawners/phase_spawner.gd" id="9_efxa6"]
+[ext_resource type="Script" uid="uid://cs48u5yfx6jrb" path="res://scripts/scaffolding/phase_spawner.gd" id="9_efxa6"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lquwl"]
 viewport_path = NodePath("SceneRoot/SubViewportContainer/Phase0")

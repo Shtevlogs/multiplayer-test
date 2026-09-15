@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://1snei1it3goh" path="res://scripts/scaffolding/tile_map_layer_entity.gd" id="2_668w6"]
 [ext_resource type="TileSet" uid="uid://l75sqltn1thq" path="res://tileset.tres" id="2_lropl"]
 [ext_resource type="Script" uid="uid://car6p4bhi87w5" path="res://scripts/components/tilemap_randomizer_component.gd" id="3_p0w5j"]
-[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://objects/portal.tscn" id="5_dby12"]
+[ext_resource type="PackedScene" uid="uid://b7wfw5yketncw" path="res://entities/objects/portal.tscn" id="5_dby12"]
 
 [node name="Randomtileworld" type="Node2D" unique_id=1013757259]
 script = ExtResource("1_viqax")
