@@ -11,8 +11,6 @@ func _spawn_phase(phase_no: int) -> Node:
     var phase := PHASE.instantiate() as SubViewport
     phase.name = "Phase%s" % phase_no
     phase._phase = phase_no
-    phase.find_child("PlayerSpawner").phase = phase_no
-    phase.find_child("SceneSpawner").phase = phase_no
     phase.world_2d = World2D.new()
     return phase
 

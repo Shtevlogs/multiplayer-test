@@ -27,7 +27,6 @@ stretch = true
 handle_input_locally = false
 size = Vector2i(500, 500)
 render_target_update_mode = 4
-scene_assignment = 0
 _phase = 0
 
 [node name="Managers" type="Node" parent="." unique_id=1790553694]

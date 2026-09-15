@@ -17,5 +17,5 @@ func _on_peer_disconnected(id: int) -> void:
 
 func spawn_peer(peer_id: int, phase : int) -> void:
     if !multiplayer.is_server(): return
-    var player_spawner := PhaseManager.get_player_spawner(phase)
+    var player_spawner : PlayerSpawner = PhaseManager.get_spawner(phase, PlayerSpawner)
     player_spawner.spawn(peer_id)

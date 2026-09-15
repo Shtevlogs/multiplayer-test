@@ -5,9 +5,8 @@ const SCENE : PackedScene = preload("uid://xgbtjip1bena")
 
 @onready var scene_root: Node2D = $SceneRoot
 
-static var I : Main
 func _ready() -> void:
-    I = self
+    Phase.empty_cutoff = 1 # 1 for the scene that is spawned there
     
     var args := OS.get_cmdline_args()
     if args.has("down_lefty"):

@@ -12,26 +12,34 @@ const SCENES : Array[PackedScene] = [
     preload("uid://dlmxpem7jrhq1") # Random Tileworld
 ]
 
-static var SCENE_MOCKS : Array[Phaseable] = []
-
 func request_scene(scene_no: int) -> int:
-    var phase := PhaseManager.get_scene_phase(scene_no)
-    if phase >= 0:
-        spawn_scene(scene_no, phase)
-        return phase
-    else:
-        phase = await PhaseManager.reserve_unused_phase(scene_no)
-    spawn_scene(scene_no, phase)
-    return phase
+    var scene_spawners := PhaseManager.get_spawners(SceneSpawner)
+    var scene_spawner_idx := scene_spawners.find_custom(
+        func(spawner: SceneSpawner) -> bool:
+            return spawner.spawned_scene_no == scene_no
+            )
+    
+    var scene_spawner := null if scene_spawner_idx == -1 else scene_spawners[scene_spawner_idx]
+    
+    # check for unassigned phases
+    if !scene_spawner:
+        scene_spawner_idx = scene_spawners.find_custom(
+        func(spawner: SceneSpawner) -> bool:
+            return spawner.spawned_scene_no == -1
+            )
+        scene_spawner = null if scene_spawner_idx == -1 else scene_spawners[scene_spawner_idx]
+    
+    if scene_spawner:
+        spawn_scene(scene_no, scene_spawner)
+        return scene_spawner.phase
+    
+    var phase_no := await PhaseManager.create_new_phase()
+    var phase : Phase = PhaseManager.get_phase(phase_no)
+    spawn_scene(scene_no, phase.get_spawner(SceneSpawner))
+    return phase.get_number()
 
-func spawn_scene(scene_no: int, phase: int) -> void:
+func spawn_scene(scene_no: int, scene_spawner: SceneSpawner) -> void:
     if !multiplayer.is_server(): return
-    
-    if !PhaseManager.is_phase_open(phase, scene_no):
-        push_error("couldn't spawn scene %s, phase %s already in use!" % [scene_no, phase])
-        return
-    
-    var scene_spawner := PhaseManager.get_scene_spawner(phase)
     
     if scene_spawner.is_scene_active(scene_no):
         return
