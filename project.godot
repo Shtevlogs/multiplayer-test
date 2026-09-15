@@ -23,6 +23,7 @@ PlayerManager="*uid://0m2xghy43bbn"
 PreloadManager="*uid://bm8vmpbhe8bnb"
 SceneManager="*uid://cqw7hipxfmpwh"
 IdentityManager="*uid://c7srsssa1xva6"
+NotificationManager="*uid://cp5nyien2rs5e"
 
 [display]
 

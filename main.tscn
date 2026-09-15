@@ -63,6 +63,13 @@ grow_vertical = 2
 theme = ExtResource("2_0xm2m")
 script = ExtResource("3_1bvp3")
 
+[node name="IdentityOptions" type="OptionButton" parent="CanvasLayer/Networking" unique_id=1039531255]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "Identities"
+popup/item_0/id = 0
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Networking" unique_id=455230299]
 layout_mode = 2
 
@@ -91,3 +98,37 @@ text = "Connect"
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Host"
+
+[node name="MessageBox" type="Control" parent="CanvasLayer" unique_id=1118221805]
+visible = false
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+theme = ExtResource("2_0xm2m")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MessageBox" unique_id=643967111]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -20.0
+offset_right = 250.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MessageBox/Panel" unique_id=1297016627]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "text"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -2,6 +2,8 @@ extends Node
 
 const IDENTITY_CACHE_PATH := &"user://identity.json"
 
+signal identities_loaded()
+
 var identities : Array[IdentityModel] = []
 var my_identity : IdentityModel = null
 
@@ -12,6 +14,13 @@ func _ready() -> void:
 
     for identity_dict : Dictionary in idtts:
         identities.append(Model.from_dict(identity_dict))
+    
+    if !identities.is_empty():
+        my_identity = identities[0]
+    
+    await get_tree().process_frame
+    
+    identities_loaded.emit()
 
 func _save_identities() -> void:
     var to_stringify : Array = []
@@ -20,6 +29,19 @@ func _save_identities() -> void:
     
     var file = FileAccess.open(IDENTITY_CACHE_PATH, FileAccess.WRITE)
     file.store_string(JSON.stringify(to_stringify))
+
+func set_default_identity(n: String) -> void:
+    var idx := identities.find_custom(func(id: IdentityModel) -> bool: return id.player_name == n)
+    if idx == -1:
+        var new_identity := IdentityModel.new()
+        new_identity.player_name = n
+        identities.push_front(new_identity)
+    else:
+        var identity := identities[idx]
+        identities.remove_at(idx)
+        identities.push_front(identity)
+    _save_identities()
+        
 
 func register_identity(pid: int, n: String) -> void:
     if pid != multiplayer.get_unique_id(): return
